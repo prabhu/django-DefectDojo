@@ -14,7 +14,7 @@ jobs:
         run: |
           docker run --rm -v /tmp:/tmp -v $(pwd):/app:rw -t ghcr.io/appthreat/cdxgen-python:v10 \
             --project-name django-DefectDojo --project-version $(git rev-parse --short "$GITHUB_SHA") \
-            -r /app -o /app/bom.json -t python --deep -p
+            -r /app -o /app/bom.json -t python --profile research -p
       - uses: actions/upload-artifact@v4
         with:
           name: sbom
